@@ -23,7 +23,7 @@ public class PostCreationTest extends BaseTestSetup {
                 .header("Content-Type", "application/json")
                 .cookie("JSESSIONID", sessionCookie)
                 .body(postRequestBody)
-                .post("/api/post/auth/creator") // Replace with your endpoint
+                .post("/api/post/auth/creator")
                 .then()
                 .extract()
                 .response();

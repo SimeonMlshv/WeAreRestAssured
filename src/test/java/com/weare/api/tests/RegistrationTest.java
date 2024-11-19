@@ -26,7 +26,7 @@ public class RegistrationTest extends BaseTestSetup {
         Response response = given()
                 .header("Content-Type", "application/json")
                 .body(registrationPayload)
-                .post("/api/users/") // Replace with your endpoint
+                .post("/api/users/")
                 .then()
                 .statusCode(200)
                 .extract().response();

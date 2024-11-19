@@ -6,7 +6,6 @@ import io.restassured.response.Response;
 public class SessionManager {
     private static String sessionCookie;
 
-    // Method to get the session cookie, logging in only if not already logged in
     public static String getSessionCookie() {
         if (sessionCookie == null) {
             sessionCookie = performLogin();
@@ -14,18 +13,18 @@ public class SessionManager {
         return sessionCookie;
     }
 
-    // Private method to perform login and retrieve the session cookie
+
     private static String performLogin() {
-        String username = "testUser"; // Replace with actual credentials
-        String password = "testPassword"; // Replace with actual credentials
+        String username = "testUser";
+        String password = "testPassword";
 
         Response response = RestAssured.given()
                 .header("Content-Type", "application/x-www-form-urlencoded")
                 .formParam("username", username)
                 .formParam("password", password)
-                .post("/authenticate") // Replace with your login endpoint
+                .post("/authenticate")
                 .then()
-                .statusCode(302) // Ensure login was successful
+                .statusCode(302)
                 .extract()
                 .response();
 

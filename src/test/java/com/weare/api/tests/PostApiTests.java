@@ -15,16 +15,14 @@ public class PostApiTests {
 
     @BeforeAll
     public static void setup() {
-        RestAssured.baseURI = "http://localhost:8081"; // Replace with your actual base URL
+        RestAssured.baseURI = "http://localhost:8081";
 
-        // Perform login to retrieve session cookie
         Response loginResponse = given()
                 .header("Content-Type", "application/x-www-form-urlencoded")
                 .formParam("username", "testUser")  // Replace with valid credentials
                 .formParam("password", "testPassword") // Replace with valid credentials
                 .post("/authenticate"); // Replace with your actual login endpoint
 
-        // Extract session cookie
         sessionCookie = loginResponse.getCookie("JSESSIONID");
         if (sessionCookie == null) {
             throw new RuntimeException("Login failed! Session cookie is null.");
@@ -35,12 +33,12 @@ public class PostApiTests {
     @Test
     public void findAllPostsTest() {
         Response response = given()
-                .cookie("JSESSIONID", sessionCookie) // Pass session cookie for authentication
-                .get("/api/post/"); // Replace with your actual endpoint for fetching posts
+                .cookie("JSESSIONID", sessionCookie)
+                .get("/api/post/");
 
         response.then().statusCode(200);
 
-        postId = response.jsonPath().getString("postId[0]"); // Get postId from the first post
+        postId = response.jsonPath().getString("postId[0]");
 
         assertNotNull(postId, "postId should not be null");
         System.out.println("Selected postId for commenting: " + postId);
@@ -48,7 +46,6 @@ public class PostApiTests {
         System.setProperty("postId", postId);
     }
 
-    // Getter for postId (to be used by the second class)
     public static String getPostId() {
         return postId;
     }

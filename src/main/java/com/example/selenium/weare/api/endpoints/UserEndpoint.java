@@ -7,7 +7,7 @@ import static io.restassured.RestAssured.given;
 
 public class UserEndpoint {
 
-    private static final String BASE_URL = "https://localhost:8081";  // Replace with actual base URL
+    private static final String BASE_URL = "https://localhost:8081";
 
     // Method to register a user
     public static Response registerUser(String username, String password, String email) {
@@ -20,18 +20,17 @@ public class UserEndpoint {
                 "}";
 
         return given()
-                .contentType(ContentType.JSON)  // Specify content type as JSON
-                .body(requestBody)              // Pass the request body
+                .contentType(ContentType.JSON)
+                .body(requestBody)
                 .when()
-                .post(BASE_URL + "/api/users/"); // Send POST request to the API
+                .post(BASE_URL + "/api/users/");
     }
 
-    // Method to log in a user
     public static Response loginUser(String username, String password) {
         return given()
                 .auth()
-                .basic(username, password)     // Basic authentication with username and password
+                .basic(username, password)
                 .when()
-                .post(BASE_URL + "/authenticate");  // Send POST request to authenticate
+                .post(BASE_URL + "/authenticate");
     }
 }
