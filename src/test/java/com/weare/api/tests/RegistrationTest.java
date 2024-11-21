@@ -5,6 +5,7 @@ import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
+import static org.testng.AssertJUnit.assertNotNull;
 
 public class RegistrationTest extends BaseTestSetup {
 
@@ -32,5 +33,9 @@ public class RegistrationTest extends BaseTestSetup {
                 .extract().response();
 
         System.out.println("Registration Response: " + response.asString());
+
+//        String userId = response.jsonPath().getString("id");
+//        assertNotNull(userId,"User ID should not be null");
+//        System.out.println("Generated User ID: " + userId);
     }
 }
