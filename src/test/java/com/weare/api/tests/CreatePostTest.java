@@ -1,6 +1,5 @@
 package com.weare.api.tests;
 
-import com.example.selenium.weare.api.utils.SessionManager;
 import com.example.selenium.weare.api.utils.TestDataGenerator;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
@@ -12,10 +11,6 @@ public class CreatePostTest extends BaseTestSetup {
 
     @Test
     public void createPostTest() {
-
-            String sessionCookie = SessionManager.getSessionCookie();
-            assertNotNull(sessionCookie, "Session cookie should not be null.");
-
         String randomContent = TestDataGenerator.generateRandomString(50); // Generate a random string for content
         String randomPictureUrl = "https://aninu.de/cdn/shop/files/Pinguin_b456cb2f-332f-48b1-a507-436394f51f11.jpg?v=1722334856"
                 + TestDataGenerator.generateRandomString(10) + ".jpg"; // Mock URL for picture

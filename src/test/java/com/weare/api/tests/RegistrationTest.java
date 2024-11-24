@@ -8,6 +8,7 @@ import static io.restassured.RestAssured.given;
 import static org.testng.AssertJUnit.assertNotNull;
 
 public class RegistrationTest extends BaseTestSetup {
+    private static String userId;
 
     @Test
     public void registrationTest() {
@@ -34,8 +35,13 @@ public class RegistrationTest extends BaseTestSetup {
 
         System.out.println("Registration Response: " + response.asString());
 
-//        String userId = response.jsonPath().getString("id");
-//        assertNotNull(userId,"User ID should not be null");
-//        System.out.println("Generated User ID: " + userId);
+        String responseBody = response.asString();
+        String userId = responseBody.replaceAll(".*id (\\d+).*", "$1"); // Regex
+        assertNotNull(userId, "User ID should not be null");
+        System.out.println("Extracted User ID: " + userId);
+    }
+
+    public static String getUserId() {
+        return userId;
     }
 }
