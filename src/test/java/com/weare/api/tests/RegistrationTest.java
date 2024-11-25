@@ -34,17 +34,16 @@ public class RegistrationTest extends BaseTestSetup {
 
         System.out.println("Registration Response: " + response.asString());
 
-        //TODO
-        //Get and save userId as variable (the response is: User with name Usernoyqh and id 64 was created)
-        //userId is used as parameter in Commenting a Post
+        // Extract userId from response message
+        String responseMessage = response.asString();
+        String userId = responseMessage.replaceAll(".*id (\\d+).*", "$1");
+        assertNotNull(userId, "User ID should not be null");
+        System.out.println("Generated User ID: " + userId);
 
-        //TODO
-        //We need to save the newly created Username and Password, so we can use them to login.
-        //We cannot hard-code this one as it will fail along the way
-
-
-//        String userId = response.jsonPath().getString("id");
-//        assertNotNull(userId,"User ID should not be null");
-//        System.out.println("Generated User ID: " + userId);
+        // Save credentials for future use
+        System.setProperty("testUser.username", randomUsername);
+        System.setProperty("testUser.password", randomPassword);
+        System.setProperty("testUser.userId", userId);
+        System.out.println("Saved credentials for user: " + randomUsername);
     }
 }
