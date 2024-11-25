@@ -38,6 +38,9 @@ public class CreatePostTest extends BaseTestSetup {
             String postId = response.jsonPath().getString("postId");
             assertNotNull(postId, "Post ID should not be null");
             System.out.println("Post created with ID: " + postId);
+
+            // Store postId in system properties for other tests to use
+            System.setProperty("testPost.postId", postId);
         } else {
             System.out.println("Failed to create post. Status Code: " + statusCode);
             // Log the response for debugging purposes

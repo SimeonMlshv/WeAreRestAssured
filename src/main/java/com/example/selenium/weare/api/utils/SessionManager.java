@@ -15,8 +15,8 @@ public class SessionManager {
 
 
     private static String performLogin() {
-        String username = "nikk";
-        String password = "123456";
+        String username = "petkrastavici";
+        String password = "test123456";
 
         Response response = RestAssured.given()
                 .header("Content-Type", "application/x-www-form-urlencoded")

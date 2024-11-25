@@ -10,10 +10,13 @@ import org.junit.platform.suite.api.Suite;
         RegistrationTest.class,
         InvalidRegistrationTest.class,
         LoginTest.class,
+        PostApiTests.class,
         CreatePostTest.class,
-        PostApiTests.class
+        NewCommentTest.class,
+        LikeCommentTest.class,
+        DeletePostTest.class,
 })
-public class AllTestsSuite {
+public class GreenPathSuite {
 
 }
 
