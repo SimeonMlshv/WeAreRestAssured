@@ -10,8 +10,8 @@ import org.junit.platform.suite.api.Suite;
         RegistrationTest.class,
         InvalidRegistrationTest.class,
         LoginTest.class,
-        PostApiTests.class,
         CreatePostTest.class,
+        PostApiTests.class
 })
 public class AllTestsSuite {
 

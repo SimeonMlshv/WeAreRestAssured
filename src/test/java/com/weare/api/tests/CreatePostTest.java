@@ -27,8 +27,8 @@ public class CreatePostTest extends BaseTestSetup {
                 "}";
 
         Response response = given()
+                .cookie("JSESSIONID", sessionCookie)
                 .header("Content-Type", "application/json")
-                .header("Authorization", "Bearer YOUR_ACCESS_TOKEN")
                 .body(postPayload)
                 .post("/api/post/auth/creator")
                 .then()

@@ -18,6 +18,7 @@ public class PostApiTests {
         RestAssured.baseURI = "http://localhost:8081";
 
         Response loginResponse = given()
+                .cookie("JSESSIONID", sessionCookie)
                 .header("Content-Type", "application/x-www-form-urlencoded")
                 .formParam("username", "testUser")  // Replace with valid credentials
                 .formParam("password", "testPassword") // Replace with valid credentials
