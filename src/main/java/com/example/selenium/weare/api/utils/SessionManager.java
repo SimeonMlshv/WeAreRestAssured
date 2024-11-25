@@ -4,7 +4,7 @@ import io.restassured.RestAssured;
 import io.restassured.response.Response;
 
 public class SessionManager {
-    private static String sessionCookie;
+    public static String sessionCookie;
 
     public static String getSessionCookie() {
         if (sessionCookie == null) {

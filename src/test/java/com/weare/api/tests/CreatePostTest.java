@@ -4,6 +4,7 @@ import com.example.selenium.weare.api.utils.TestDataGenerator;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
 
+import static com.example.selenium.weare.api.utils.SessionManager.sessionCookie;
 import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
