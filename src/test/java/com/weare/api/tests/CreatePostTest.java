@@ -12,9 +12,9 @@ public class CreatePostTest extends BaseTestSetup {
 
     @Test
     public void createPostTest() {
-        String randomContent = TestDataGenerator.generateRandomString(50); // Generate a random string for content
+        String randomContent = TestDataGenerator.generateRandomString(50);
         String randomPictureUrl = "https://aninu.de/cdn/shop/files/Pinguin_b456cb2f-332f-48b1-a507-436394f51f11.jpg?v=1722334856"
-                + TestDataGenerator.generateRandomString(10) + ".jpg"; // Mock URL for picture
+                + TestDataGenerator.generateRandomString(10) + ".jpg";
 
         String postPayload = "{\n" +
                 "  \"content\": \"" + randomContent + "\",\n" +
@@ -39,11 +39,9 @@ public class CreatePostTest extends BaseTestSetup {
             assertNotNull(postId, "Post ID should not be null");
             System.out.println("Post created with ID: " + postId);
 
-            // Store postId in system properties for other tests to use
             System.setProperty("testPost.postId", postId);
         } else {
             System.out.println("Failed to create post. Status Code: " + statusCode);
-            // Log the response for debugging purposes
             System.out.println("Response Body: " + response.asString());
         }
     }
