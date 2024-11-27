@@ -9,7 +9,6 @@ public class UserEndpoint {
 
     private static final String BASE_URL = "https://localhost:8081";
 
-    // Method to register a user
     public static Response registerUser(String username, String password, String email) {
         String requestBody = "{\n" +
                 "  \"username\": \"" + username + "\",\n" +

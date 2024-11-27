@@ -34,7 +34,6 @@ public class RegistrationTest extends BaseTestSetup {
 
         System.out.println("Registration Response: " + response.asString());
 
-        // Extract userId from response message
         String responseMessage = response.asString();
         String userId = responseMessage.replaceAll(".*id (\\d+).*", "$1");
         assertNotNull(userId, "User ID should not be null");
